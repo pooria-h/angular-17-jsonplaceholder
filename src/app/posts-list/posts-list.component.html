@@ -1,0 +1,42 @@
+<div class="relative flex flex-col text-gray-700 bg-white bg-clip-border overflow-x-auto mb-4">
+  <table class="text-left table-auto overflow-scroll">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 text-gray-400">
+      <tr>
+        <th class="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Date
+          </p>
+        </th>
+        <th class="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Amount
+          </p>
+        </th>
+        <th class="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            From
+          </p>
+        </th>
+        <th class="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            To
+          </p>
+        </th>
+        <th scope="col" class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            Description
+          </p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (post of store.posts(); track post.id) {
+        <tr>
+          <td class="p-4">{{ post.id }}</td>
+          <td class="p-4">{{ post.title }}</td>
+          <td class="p-4">{{ post.body }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
