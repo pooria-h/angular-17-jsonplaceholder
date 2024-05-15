@@ -1,0 +1,19 @@
+.postItem {
+    @apply bg-white shadow-lg;
+}
+
+.postItem--selected {
+    @apply bg-green-100;
+}
+
+.postItem-button {
+    @apply block p-4 w-full;
+}
+
+.postItem-heading {
+    @apply text-left mb-3;
+}
+
+.postItem-details {
+    @apply text-left text-gray-500 text-sm;
+}

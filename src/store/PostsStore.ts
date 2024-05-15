@@ -4,6 +4,7 @@ import { Post } from '../interfaces/Post';
 import { PostsService } from '../services/PostsService';
 
 const initialState = {
+  activePost: 0 as number,
   posts: [] as Post[],
   isFetched: false,
   error: '' as string
@@ -19,6 +20,11 @@ export const PostsStore = signalStore(
   withMethods((
     store,
     postsService = inject(PostsService)) => ({
+    setActivePost: (postId: number): void => {
+      patchState(store, {
+        activePost: postId
+      });
+    },
     setPostsOnSuccess: (payload: any): void => {
       patchState(store, {
         posts: payload,

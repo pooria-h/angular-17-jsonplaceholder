@@ -1,0 +1,15 @@
+.app-wrapper {
+    @apply bg-gray-200;
+}
+
+.loader {
+    @apply grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible;
+}
+
+.loader-svg {
+    @apply w-16 h-16 animate-spin text-gray-900/50;
+}
+
+.errorBlock {
+    @apply relative block w-full p-4 mt-4 mb-4 text-base leading-5 text-white bg-red-500 rounded-lg opacity-100;
+}

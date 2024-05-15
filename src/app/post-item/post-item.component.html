@@ -1,0 +1,31 @@
+<li [class.postItem--selected]="isActive()" class="postItem">
+    <button (click)="handleClick()" class="postItem-button" type="button">
+        <div>
+            <h3 class="postItem-heading">{{ computedTitle() }}</h3>
+        </div>
+        @if (isActive()) {
+            <div class="postItem-details">
+                <table>
+                    <tr>
+                        <td class="pb-2 pr-1">UserId:</td>
+                        <td class="pb-2">{{ details.userId }}</td>
+                    </tr>
+                    <tr>
+                        <td class="pb-2 pr-1">Id:</td>
+                        <td class="pb-2">{{ details.id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="pb-2 pr-1">Title:</td>
+                        <td class="pb-2">{{ details.title }}</td>
+                    </tr>
+                    <tr>
+                        <td class="pr-1">Body:</td>
+                        <td>{{ details.body }}</td>
+                    </tr>
+                </table>
+                <!-- <span class="p-4">{{ details }}</span> -->
+            <!-- </p> -->
+            </div>
+        }
+    </button>
+</li>
