@@ -3,6 +3,8 @@ A simple project made using Angular 17 and NGRX. It fetches 100 posts from jsonp
 
 # How to run
 
+__ENV:__ Node v18.18.2
+
 Run
 
 ```npm i```
