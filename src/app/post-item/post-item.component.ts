@@ -6,8 +6,7 @@ import {
   signal,
   Signal,
   WritableSignal,
-  SimpleChanges,
-  OnChanges,
+  effect
 } from '@angular/core';
 import { PostsStore } from '../../store/PostsStore';
 import { Post } from '../../interfaces/Post';
@@ -19,43 +18,45 @@ import { Post } from '../../interfaces/Post';
   templateUrl: './post-item.component.html',
   styleUrl: './post-item.component.css'
 })
-export class PostItemComponent implements OnChanges {
-  @Input({ required: true }) activePost!: number;
+export class PostItemComponent {
   @Input({ required: true }) details!: Post;
   @Input({ required: true }) title!: string;
  
   readonly store = inject(PostsStore);
   readonly isActive: Signal<boolean> = computed(() => this.details.id === this.store.activePost());
   readonly computedTitle: Signal<string | number> = computed(() => this.details[this.activePropertyName()]);
-  readonly activePropertyName: WritableSignal<string> = signal('title');
+  readonly activePropertyName: WritableSignal<string> = signal('');
+  readonly clickCounter: WritableSignal<number> = signal(0);
 
-  handleReset() {
-    if (!this.isActive()) {
-      this.activePropertyName.set('title');
-    }
+  constructor() {
+    effect(() => {
+      if (!this.isActive()) {
+        this.handleReset();
+      }
+    }, { allowSignalWrites: true });
   }
 
-  handleClick() {
+  handleReset(): void {
+      this.activePropertyName.set('title');
+      this.clickCounter.set(0);
+  }
+
+  handleClick(): void {
+    this.clickCounter.set(this.clickCounter() + 1);
     this.store.setActivePost(this.details.id);
     this.rotateTitle();
   }
 
-  rotateTitle() {
+  rotateTitle(): void {
     const keys = Object.keys(this.details);
     let currentIndex = keys.indexOf(this.activePropertyName());
 
-    if (currentIndex === keys.length - 1) {
+    if (currentIndex === keys.length - 1 || this.clickCounter() === 1) {
       currentIndex = 0;
     } else {
       currentIndex++;
     }
 
     this.activePropertyName.set(keys[currentIndex]);
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['activePost'] && !changes['activePost'].isFirstChange()) {
-      this.handleReset();
-    }
   }
 }

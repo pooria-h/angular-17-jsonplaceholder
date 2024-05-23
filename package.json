@@ -1,6 +1,6 @@
 {
   "name": "angular-jsonplaceholder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple project made with Angular 17 and NGRX",
   "scripts": {
     "ng": "ng",

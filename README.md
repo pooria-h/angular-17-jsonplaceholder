@@ -17,7 +17,7 @@ Then
 
 ## Backlog
 
-- Researching on the best way to to handle the reset functionality (Using Shared Observebale vs Signal and ngOnChanges) and making a choice
+- ~~Researching on the best way to to handle the reset functionality (Using Shared Observebale vs Signal and ngOnChanges) and making a choice~~
 - 
 
 

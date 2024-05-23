@@ -4,7 +4,6 @@
       @for (post of store.posts(); track post.id) {
         <app-post-item
           class="postsList-item"
-          [activePost]="store.activePost()"
           [details]="post"
           [title]="post.title" />
       }
