@@ -20,7 +20,6 @@ import { Post } from '../../interfaces/Post';
 })
 export class PostItemComponent {
   @Input({ required: true }) details!: Post;
-  @Input({ required: true }) title!: string;
  
   readonly store = inject(PostsStore);
   readonly isActive: Signal<boolean> = computed(() => this.details.id === this.store.activePost());

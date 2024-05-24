@@ -11,7 +11,7 @@ export class PostsService {
 
   async getPosts(): Promise<PostsResponse> {
     try {
-      const response = await fetch(this.apiUrl);
+      const response: Response = await fetch(this.apiUrl);
       if (!response.ok) {
         return { success: false, error: response.status.toString() }
       }
